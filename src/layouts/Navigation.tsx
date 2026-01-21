@@ -3,8 +3,9 @@ import logo from '../assets/images/logo.svg';
 import hamburgerIcon from '../assets/images/icon-menu.svg';
 import cartIcon from '../assets/images/icon-cart.svg';
 import userAvatar from '../assets/images/image-avatar.png';
+import { CartProps } from '../types/types';
 
-const Navigation: React.FC = () => {
+const Navigation: React.FC<CartProps> = ({ isCartOpen, setIsCartOpen }) => {
   return (
     <nav>
       <div className="max-w-7xl mx-auto p-5 md:p-[2rem] shadow-sm">
@@ -43,7 +44,12 @@ const Navigation: React.FC = () => {
             </div>
           </div>
           <div>
-            <img src={cartIcon} alt="" className="inline mr-4 cursor-pointer" />
+            <img
+              src={cartIcon}
+              alt=""
+              className="inline mr-4 cursor-pointer"
+              onClick={() => setIsCartOpen(!isCartOpen)}
+            />
             <img
               src={userAvatar}
               alt=""
