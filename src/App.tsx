@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navigation from './layouts/Navigation';
 import Cart from './components/CartComponent';
+import ProductPage from './layouts/ProductPage';
 const App = () => {
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [isProductInCart, setIsProductInCart] = useState<boolean>(false);
@@ -16,6 +17,7 @@ const App = () => {
           setIsCartOpen={setIsCartOpen}
           isProductInCart={isProductInCart}
         />
+        <ProductPage />
       </main>
     </>
   );
