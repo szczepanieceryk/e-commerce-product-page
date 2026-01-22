@@ -34,7 +34,7 @@ const CartComponent: React.FC<CartProps> = ({ isCartOpen, isProductInCart, setIs
       role="dialog"
       aria-modal="true"
       aria-label="Shopping cart"
-      className={`${!isCartOpen ? 'hidden' : ''} ${isProductInCart ? '' : 'min-h-64'} p-5 mx-auto absolute lg:right-[5rem] top-4 z-index-1000 w-[95%] md:max-w-[400px] rounded-md shadow-xl`}
+      className={`${!isCartOpen ? 'hidden' : ''} ${isProductInCart ? '' : 'min-h-64'} p-5 mx-auto absolute lg:right-[5rem] top-4 z-index-1000 w-[95%] md:max-w-[400px] rounded-md shadow-xl bg-white`}
     >
       <span className="block my-4 font-semibold">Cart</span>
       <hr />
