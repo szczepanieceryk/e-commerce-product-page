@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { CartProps } from '../types/types';
+import CartItem from './CartItem';
 
-const CartComponent: React.FC<CartProps> = ({ isCartOpen, setIsCartOpen }) => {
+const CartComponent: React.FC<CartProps> = ({ isCartOpen, isProductInCart, setIsCartOpen }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -33,12 +34,27 @@ const CartComponent: React.FC<CartProps> = ({ isCartOpen, setIsCartOpen }) => {
       role="dialog"
       aria-modal="true"
       aria-label="Shopping cart"
-      className={`${!isCartOpen ? 'hidden' : ''} absolute inset-x-0 lg:right-[5rem]  top-4 z-index-1000 w-[95%] md:max-w-[400px] min-h-64 p-3 mx-auto rounded-md border-2 border-black`}
+      className={`${!isCartOpen ? 'hidden' : ''} ${isProductInCart ? '' : 'min-h-64'} p-5 mx-auto absolute lg:right-[5rem] top-4 z-index-1000 w-[95%] md:max-w-[400px] rounded-md shadow-xl`}
     >
-      <span className="block mb-4 font-semibold">Cart</span>
+      <span className="block my-4 font-semibold">Cart</span>
       <hr />
-      <div className="min-h-48 flex items-center justify-center">
-        <span className="block text-[hsl(223, 64%, 98%]">Your cart is empty</span>
+      <div
+        className={`flex flex-wrap ${isProductInCart ? 'my-4' : 'min-h-48 items-center justify-center'}`}
+      >
+        {isProductInCart && (
+          <>
+            <CartItem />
+            <button
+              type="button"
+              className="py-4 my-4 w-full h-auto rounded-lg bg-orange-500 font-semibold"
+            >
+              Checkout
+            </button>
+          </>
+        )}
+        {!isProductInCart && (
+          <span className="block text-[hsl(223, 64%, 98%]">Your cart is empty</span>
+        )}
       </div>
     </div>
   );

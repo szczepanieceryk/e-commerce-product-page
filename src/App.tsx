@@ -3,6 +3,7 @@ import Navigation from './layouts/Navigation';
 import Cart from './components/CartComponent';
 const App = () => {
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
+  const [isProductInCart, setIsProductInCart] = useState<boolean>(false);
 
   return (
     <>
@@ -10,7 +11,11 @@ const App = () => {
         <Navigation isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
       </header>
       <main className="relative">
-        <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
+        <Cart
+          isCartOpen={isCartOpen}
+          setIsCartOpen={setIsCartOpen}
+          isProductInCart={isProductInCart}
+        />
       </main>
     </>
   );
