@@ -16,21 +16,34 @@ const CartHandling: React.FC<CartStateProps> = ({ itemQuantity, setItemQuantity 
     setItemQuantity(itemQuantity);
   };
 
+  const addItemToCart = () => {};
+
   return (
-    <div className="">
+    <>
       <div className="flex flex-wrap justify-between items-center p-4 bg-[#f7f8fdff] rounded-lg">
-        <img src={minusIcon} alt="" onClick={decreaseItemQuantity} />
+        <img
+          src={minusIcon}
+          alt="Decrease Item Quantity"
+          onClick={decreaseItemQuantity}
+          className="cursor-pointer"
+        />
         <span>{itemQuantity}</span>
-        <img src={plusIcon} alt="" onClick={increaseItemQuantity} />
+        <img
+          src={plusIcon}
+          alt="Increase Item Quantity"
+          onClick={increaseItemQuantity}
+          className="cursor-pointer"
+        />
       </div>
       <button
         type="button"
         className="py-4 my-4 w-full h-auto rounded-lg bg-orange-500 font-semibold shadow-lg shadow-orange-500/50 flex items-center justify-center gap-2"
+        onClick={addItemToCart}
       >
         <img src={cartIcon} alt="Add to cart" className="w-5 h-5" />
         Add to cart
       </button>
-    </div>
+    </>
   );
 };
 
