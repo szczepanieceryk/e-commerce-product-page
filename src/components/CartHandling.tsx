@@ -23,15 +23,13 @@ const CartHandling: React.FC<CartStateProps> = ({ itemQuantity, setItemQuantity 
         <span>{itemQuantity}</span>
         <img src={plusIcon} alt="" onClick={increaseItemQuantity} />
       </div>
-      <div className="relative ">
-        <img src={cartIcon} alt="" className="absolute top-[2rem]  left-[6rem]" />
-        <button
-          type="button"
-          className="py-4 my-4 w-full h-auto rounded-lg bg-orange-500 font-semibold"
-        >
-          Add to cart
-        </button>
-      </div>
+      <button
+        type="button"
+        className="py-4 my-4 w-full h-auto rounded-lg bg-orange-500 font-semibold shadow-lg shadow-orange-500/50 flex items-center justify-center gap-2"
+      >
+        <img src={cartIcon} alt="Add to cart" className="w-5 h-5" />
+        Add to cart
+      </button>
     </div>
   );
 };
