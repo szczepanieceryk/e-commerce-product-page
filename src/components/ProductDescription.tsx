@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProductDescription = () => {
   return (
-    <div className="p-5 max-w-[450px]">
+    <>
       <span className="mb-2 block uppercase text-gray-500 text-xs">sneaker company</span>
       <span className="block text-2xl font-bold max-w-[200px]">Fall Limited Edition Sneakers</span>
       <p className="my-4 text-gray-500 font-light">
@@ -16,7 +16,7 @@ const ProductDescription = () => {
         </div>
         <span className="lg:mt-2 text-gray-500 font-semibold">$250</span>
       </div>
-    </div>
+    </>
   );
 };
 
