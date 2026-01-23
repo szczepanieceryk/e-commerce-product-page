@@ -2,14 +2,26 @@ import React from 'react';
 import cartIcon from '../assets/images/icon-cart.svg';
 import plusIcon from '../assets/images/icon-plus.svg';
 import minusIcon from '../assets/images/icon-minus.svg';
+import { CartStateProps } from '../types/types';
 
-const CartHandling: React.FC = () => {
+const CartHandling: React.FC<CartStateProps> = ({ itemQuantity, setItemQuantity }) => {
+  const increaseItemQuantity = () => {
+    itemQuantity += 1;
+    setItemQuantity(itemQuantity);
+  };
+
+  const decreaseItemQuantity = () => {
+    itemQuantity > 0 ? (itemQuantity -= 1) : (itemQuantity = 0);
+
+    setItemQuantity(itemQuantity);
+  };
+
   return (
     <div className="">
       <div className="flex flex-wrap justify-between items-center p-4 bg-[#f7f8fdff] rounded-lg">
-        <img src={minusIcon} alt="" />
-        <span>3</span>
-        <img src={plusIcon} alt="" />
+        <img src={minusIcon} alt="" onClick={decreaseItemQuantity} />
+        <span>{itemQuantity}</span>
+        <img src={plusIcon} alt="" onClick={increaseItemQuantity} />
       </div>
       <div className="relative ">
         <img src={cartIcon} alt="" className="absolute top-[2rem]  left-[6rem]" />

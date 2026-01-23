@@ -2,13 +2,14 @@ import React from 'react';
 import ProductThumbnail from '../components/ProductThumbnail';
 import ProductDescription from '../components/ProductDescription';
 import CartHandling from '../components/CartHandling';
-const ProductPage: React.FC = () => {
+import { CartStateProps } from '../types/types';
+const ProductPage: React.FC<CartStateProps> = ({ itemQuantity, setItemQuantity }) => {
   return (
     <div>
       <ProductThumbnail />
       <div className="p-5 max-w-[450px]">
         <ProductDescription />
-        <CartHandling />
+        <CartHandling itemQuantity={itemQuantity} setItemQuantity={setItemQuantity} />
       </div>
     </div>
   );

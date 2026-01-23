@@ -5,7 +5,7 @@ import ProductPage from './layouts/ProductPage';
 const App = () => {
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [isProductInCart, setIsProductInCart] = useState<boolean>(false);
-
+  const [itemQuantity, setItemQuantity] = useState<number>(1);
   return (
     <>
       <header>
@@ -17,7 +17,7 @@ const App = () => {
           setIsCartOpen={setIsCartOpen}
           isProductInCart={isProductInCart}
         />
-        <ProductPage />
+        <ProductPage itemQuantity={itemQuantity} setItemQuantity={setItemQuantity} />
       </main>
     </>
   );
