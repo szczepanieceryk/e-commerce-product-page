@@ -9,8 +9,8 @@ const ProductDescription: React.FC<ProductDetails> = ({
 }) => {
   return (
     <>
-      <span className="mb-2 block uppercase text-gray-500 text-xs">{company}</span>
-      <span className="block text-2xl font-bold max-w-[200px]">{name}</span>
+      <span className="my-4 block uppercase text-gray-500 text-sm font-semibold">{company}</span>
+      <span className="block text-2xl font-bold max-w-[250px]">{name}</span>
       <p className="my-4 text-gray-500 font-light">{description}</p>
       <div className="my-6 flex flex-wrap lg:max-w-[150px] justify-between items-center">
         <div className="flex items-center">
