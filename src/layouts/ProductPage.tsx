@@ -11,9 +11,13 @@ const ProductPage: React.FC<ProductPageProps> = ({
 }) => {
   return (
     <div>
-      <ProductThumbnail img={productDetails[0].img} />
       <div className="p-5 max-w-[450px]">
-        {productDetails?.map?.((product) => <ProductDescription key={product.id} {...product} />)}
+        {productDetails?.map?.((product) => (
+          <div key={product.id}>
+            <ProductThumbnail {...product} />
+            <ProductDescription {...product} />
+          </div>
+        ))}
         <CartHandling itemQuantity={itemQuantity} setItemQuantity={setItemQuantity} />
       </div>
     </div>
