@@ -7,7 +7,7 @@ const ProductThumbnail: React.FC<ProductDetails> = ({ img }) => {
   return (
     <div className="max-w-[450px]">
       <div className="relative">
-        <img src={img.mainImg} alt="" className="w-full lg:rounded-xl" />
+        <img src={img.mainImg} alt="Product photo" className="w-full lg:rounded-xl" />
 
         <div className="md:hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 flex justify-between w-[350px] px-3">
           <div className="flex items-center justify-center bg-white rounded-3xl w-10 h-10">
