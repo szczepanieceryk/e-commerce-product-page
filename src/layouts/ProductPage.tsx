@@ -12,7 +12,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
 }) => {
   return (
     <div>
-      <div className="p-5 max-w-[450px]">
+      <div className="max-w-[450px]">
         {productDetails?.map?.((product) => (
           <div key={product.id}>
             <ProductThumbnail {...product} />
