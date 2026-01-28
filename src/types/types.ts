@@ -1,13 +1,17 @@
 export interface CartProps {
   isCartOpen: boolean;
-  isProductInCart?: boolean;
-  cartItemsQuantity?: number;
-  setIsCartOpen: (value: boolean) => void;
+  setIsCartOpen: (v: boolean) => void;
+  cartItems: CartEntry[];
+  updateCartQuantity: (productId: number, qty: number) => void;
+  removeFromCart: (productId: number) => void;
+  clearCart: () => void;
 }
 
 export interface CartStateProps {
+  product: ProductDetails;
   itemQuantity: number;
   setItemQuantity: (quantity: number) => void;
+  addToCart: (productToAdd: ProductDetails, quantity: number) => void;
 }
 
 export interface ProductDetails {
@@ -21,6 +25,14 @@ export interface ProductDetails {
   quantity?: number;
 }
 
-export interface ProductPageProps extends CartStateProps {
+export interface ProductPageProps {
+  itemQuantity: number;
+  setItemQuantity: (quantity: number) => void;
   productDetails?: ProductDetails[];
+  addToCart: (productToAdd: ProductDetails, quantity: number) => void;
 }
+
+export type CartEntry = {
+  product: ProductDetails;
+  quantity: number;
+};

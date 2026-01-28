@@ -8,6 +8,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
   itemQuantity,
   setItemQuantity,
   productDetails,
+  addToCart,
 }) => {
   return (
     <div>
@@ -16,9 +17,14 @@ const ProductPage: React.FC<ProductPageProps> = ({
           <div key={product.id}>
             <ProductThumbnail {...product} />
             <ProductDescription {...product} />
+            <CartHandling
+              product={{ ...product }}
+              itemQuantity={itemQuantity}
+              setItemQuantity={setItemQuantity}
+              addToCart={addToCart}
+            />
           </div>
         ))}
-        <CartHandling itemQuantity={itemQuantity} setItemQuantity={setItemQuantity} />
       </div>
     </div>
   );

@@ -4,7 +4,12 @@ import plusIcon from '../assets/images/icon-plus.svg';
 import minusIcon from '../assets/images/icon-minus.svg';
 import { CartStateProps } from '../types/types';
 
-const CartHandling: React.FC<CartStateProps> = ({ itemQuantity, setItemQuantity }) => {
+const CartHandling: React.FC<CartStateProps> = ({
+  itemQuantity,
+  setItemQuantity,
+  addToCart,
+  product,
+}) => {
   const increaseItemQuantity = () => {
     itemQuantity += 1;
     setItemQuantity(itemQuantity);
@@ -15,8 +20,6 @@ const CartHandling: React.FC<CartStateProps> = ({ itemQuantity, setItemQuantity 
 
     setItemQuantity(itemQuantity);
   };
-
-  const addItemToCart = () => {};
 
   return (
     <>
@@ -38,7 +41,8 @@ const CartHandling: React.FC<CartStateProps> = ({ itemQuantity, setItemQuantity 
       <button
         type="button"
         className="py-4 my-4 w-full h-auto rounded-lg bg-orange-500 font-semibold shadow-lg shadow-orange-500/50 flex items-center justify-center gap-2"
-        onClick={addItemToCart}
+        onClick={() => product && addToCart(product, itemQuantity)}
+        disabled={!product || itemQuantity <= 0}
       >
         <img src={cartIcon} alt="Add to cart" className="w-5 h-5" />
         Add to cart

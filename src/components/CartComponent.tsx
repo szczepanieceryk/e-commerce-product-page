@@ -2,7 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import { CartProps } from '../types/types';
 import CartItem from './CartItem';
 
-const CartComponent: React.FC<CartProps> = ({ isCartOpen, isProductInCart, setIsCartOpen }) => {
+const CartComponent: React.FC<CartProps> = ({
+  isCartOpen,
+  setIsCartOpen,
+  cartItems,
+  updateCartQuantity,
+  removeFromCart,
+}) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -28,32 +34,45 @@ const CartComponent: React.FC<CartProps> = ({ isCartOpen, isProductInCart, setIs
   }, [isCartOpen, setIsCartOpen]);
 
   if (!isCartOpen) return null;
+
+  const total = cartItems.reduce((sum, e) => sum + e.product.discountedPrice * e.quantity, 0);
+
   return (
     <div
       ref={ref}
       role="dialog"
       aria-modal="true"
       aria-label="Shopping cart"
-      className={`${!isCartOpen ? 'hidden' : ''} ${isProductInCart ? '' : 'min-h-64'} p-5 mx-auto absolute lg:right-[5rem] top-4 z-index-1000 w-[95%] md:max-w-[400px] rounded-md shadow-xl bg-white`}
+      className="p-5 mx-auto absolute lg:right-[5rem] top-4 z-50 w-[95%] md:max-w-[400px] rounded-md shadow-xl bg-white"
     >
       <span className="block my-4 font-semibold">Cart</span>
       <hr />
-      <div
-        className={`flex flex-wrap ${isProductInCart ? 'my-4' : 'min-h-48 items-center justify-center'}`}
-      >
-        {isProductInCart && (
-          <>
-            <CartItem />
-            <button
-              type="button"
-              className="py-4 my-4 w-full h-auto rounded-lg bg-orange-500 font-semibold"
-            >
-              Checkout
-            </button>
-          </>
+      <div className="my-4">
+        {cartItems.length === 0 && (
+          <div className="py-8 text-center text-gray-500">Your cart is empty</div>
         )}
-        {!isProductInCart && (
-          <span className="block text-[hsl(223, 64%, 98%]">Your cart is empty</span>
+
+        {cartItems.length > 0 && (
+          <>
+            <div className="space-y-4">
+              {cartItems.map((entry) => (
+                <CartItem
+                  key={entry.product.id}
+                  product={entry.product}
+                  quantity={entry.quantity}
+                  onRemove={() => removeFromCart(entry.product.id)}
+                  onQuantityChange={(q: number) => updateCartQuantity(entry.product.id, q)}
+                />
+              ))}
+            </div>
+
+            <div className="mt-4 flex justify-between items-center">
+              <span className="font-semibold">Total</span>
+              <span className="font-bold">${total.toFixed(2)}</span>
+            </div>
+
+            <button className="py-3 mt-4 w-full bg-orange-500 text-white rounded">Checkout</button>
+          </>
         )}
       </div>
     </div>
