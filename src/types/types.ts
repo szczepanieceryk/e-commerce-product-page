@@ -36,3 +36,11 @@ export type CartEntry = {
   product: ProductDetails;
   quantity: number;
 };
+
+export interface CartItemProps {
+  product: ProductDetails;
+  total: number;
+  quantity: number;
+  onRemove: () => void;
+  onQuantityChange: (q: number) => void;
+}

@@ -60,18 +60,15 @@ const CartComponent: React.FC<CartProps> = ({
                   key={entry.product.id}
                   product={entry.product}
                   quantity={entry.quantity}
+                  total={total}
                   onRemove={() => removeFromCart(entry.product.id)}
                   onQuantityChange={(q: number) => updateCartQuantity(entry.product.id, q)}
                 />
               ))}
             </div>
-
-            <div className="mt-4 flex justify-between items-center">
-              <span className="font-semibold">Total</span>
-              <span className="font-bold">${total.toFixed(2)}</span>
-            </div>
-
-            <button className="py-3 mt-4 w-full bg-orange-500 text-white rounded">Checkout</button>
+            <button className="py-3 mt-4 w-full bg-orange-500 text-gray-700 font-semibold rounded">
+              Checkout
+            </button>
           </>
         )}
       </div>
