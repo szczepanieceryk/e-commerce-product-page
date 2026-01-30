@@ -16,13 +16,15 @@ const ProductPage: React.FC<ProductPageProps> = ({
         {productDetails?.map?.((product) => (
           <div key={product.id}>
             <ProductThumbnail {...product} />
-            <ProductDescription {...product} />
-            <CartHandling
-              product={{ ...product }}
-              itemQuantity={itemQuantity}
-              setItemQuantity={setItemQuantity}
-              addToCart={addToCart}
-            />
+            <div className="p-5">
+              <ProductDescription {...product} />
+              <CartHandling
+                product={{ ...product }}
+                itemQuantity={itemQuantity}
+                setItemQuantity={setItemQuantity}
+                addToCart={addToCart}
+              />
+            </div>
           </div>
         ))}
       </div>

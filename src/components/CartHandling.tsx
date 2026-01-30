@@ -40,7 +40,7 @@ const CartHandling: React.FC<CartStateProps> = ({
       </div>
       <button
         type="button"
-        className="py-4 my-4 w-full h-auto rounded-lg bg-orange-500 font-semibold shadow-lg shadow-orange-500/50 flex items-center justify-center gap-2"
+        className="py-4 my-4 w-full h-auto rounded-lg bg-orange-500 hover:bg-orange-300 font-semibold shadow-lg shadow-orange-500/50 flex items-center justify-center gap-2"
         onClick={() => product && addToCart(product, itemQuantity)}
         disabled={!product || itemQuantity <= 0}
       >
