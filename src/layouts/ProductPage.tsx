@@ -12,11 +12,14 @@ const ProductPage: React.FC<ProductPageProps> = ({
 }) => {
   return (
     <div>
-      <div className="max-w-[450px]">
+      <div className="">
         {productDetails?.map?.((product) => (
-          <div key={product.id}>
+          <div
+            key={product.id}
+            className="md:flex flex-wrap justify-around gap-2 max-w-[1100px] mx-auto"
+          >
             <ProductThumbnail {...product} />
-            <div className="p-5">
+            <div className="p-5 max-w-[450px]">
               <ProductDescription {...product} />
               <CartHandling
                 product={{ ...product }}

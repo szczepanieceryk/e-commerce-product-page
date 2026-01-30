@@ -48,14 +48,14 @@ const MobileProductThumbnailsDisplay: React.FC<ProductDetails> = ({ img }) => {
           <img src={arrowRight} alt="" className="w-4 h-4 object-contain" />
         </button>
       </div>
-      <div className="hidden mt-[2rem] lg:flex flex-wrap justify-beetwen gap-2">
+      <div className="hidden mt-[2rem] md:flex flex-wrap justify-around gap-2">
         {images?.map?.((thumb, i) => (
           <button
             key={i}
             type="button"
             onClick={() => selectIndex(i)}
             aria-label={`Pokaż obraz ${i + 1}`}
-            className={`w-20 h-20 rounded-lg overflow-hidden border-2 ${
+            className={`w-24 h-24 rounded-lg overflow-hidden border-2 ${
               i === index ? 'border-orange-500' : 'border-transparent'
             } focus:outline-none`}
           >
