@@ -16,7 +16,7 @@ export interface CartStateProps {
 
 export interface ProductDetails {
   id: number;
-  img: { mainImg: string; thumbnails: string[] };
+  img: { mainImg: string[]; thumbnails: string[] };
   name: string;
   description: string;
   company: string;
