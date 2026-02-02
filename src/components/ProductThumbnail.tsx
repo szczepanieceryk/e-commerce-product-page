@@ -5,7 +5,7 @@ import MobileProductThumbnailsDisplay from './MobileProductThumbnailsDisplay';
 
 const ProductThumbnail: React.FC<ProductDetails> = (img) => {
   return (
-    <div className="max-w-[450px]">
+    <div className="max-w-[500px]">
       <MobileProductThumbnailsDisplay {...img} />
     </div>
   );
