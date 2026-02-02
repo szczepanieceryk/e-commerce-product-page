@@ -18,6 +18,7 @@ const App = () => {
     itemQuantity,
     setItemQuantity,
     cartItems,
+    cartItemQuantity,
   } = useCart();
 
   return (
@@ -25,7 +26,7 @@ const App = () => {
       <header>
         <Navigation
           isCartOpen={isCartOpen}
-          cartItemQunatity={itemQuantity}
+          cartItemQunatity={cartItemQuantity}
           setIsCartOpen={setIsCartOpen}
         />
       </header>

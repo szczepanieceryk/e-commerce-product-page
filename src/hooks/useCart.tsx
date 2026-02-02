@@ -4,6 +4,7 @@ import { ProductDetails, CartEntry } from '../types/types';
 const useCart = () => {
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [itemQuantity, setItemQuantity] = useState<number>(1);
+  const [cartItemQuantity, setCartItemQuantity] = useState<number>(0);
   const [cartItems, setCartItems] = useState<CartEntry[]>([]);
   const [product, setProduct] = useState<ProductDetails | null>(null);
 
@@ -22,6 +23,7 @@ const useCart = () => {
       return [...prev, { product: productToAdd, quantity: qty }];
     });
     setIsCartOpen(true);
+    setCartItemQuantity(qty);
   };
 
   const updateCartQuantity = (productId: number, qty: number) => {
@@ -34,6 +36,7 @@ const useCart = () => {
 
   const removeFromCart = (productId: number) => {
     setCartItems((prev) => prev.filter((e) => e.product.id !== productId));
+    setCartItemQuantity(0);
   };
 
   const clearCart = () => setCartItems([]);
@@ -51,6 +54,7 @@ const useCart = () => {
     setCartItems,
     product,
     setProduct,
+    cartItemQuantity,
   };
 };
 

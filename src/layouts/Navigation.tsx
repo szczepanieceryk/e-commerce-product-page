@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from '../assets/images/logo.svg';
-import hamburgerIcon from '../assets/images/icon-menu.svg';
 import cartIcon from '../assets/images/icon-cart.svg';
 import userAvatar from '../assets/images/image-avatar.png';
 import Desktopnavigation from '../components/DesktopNavigation';
@@ -17,7 +16,6 @@ const Navigation: React.FC<NavigationProps> = ({ isCartOpen, cartItemQunatity, s
       <div className="max-w-7xl mx-auto p-5 md:p-[2rem] shadow-sm">
         <div className="flex flex-wrap justify-between items-center align-items-cnter">
           <div>
-            <img src={hamburgerIcon} alt="" className="inline mr-4 cursor-pointer md:hidden" />
             <img src={logo} alt="" className="inline h-auto w-[120px] cursor-pointer md:mr-4" />
             <Desktopnavigation />
           </div>
