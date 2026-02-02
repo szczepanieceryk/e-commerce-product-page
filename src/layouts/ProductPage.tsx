@@ -18,7 +18,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
           className="md:flex md:mt-[7rem] flex-wrap justify-around gap-2 max-w-[1100px] mx-auto"
         >
           <ProductThumbnail {...product} />
-          <div className="p-5 max-w-[450px]">
+          <div className="p-5 max-w-[500px]">
             <ProductDescription {...product} />
             <CartHandling
               product={{ ...product }}
