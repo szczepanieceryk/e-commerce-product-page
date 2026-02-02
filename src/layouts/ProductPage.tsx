@@ -11,12 +11,9 @@ const ProductPage: React.FC<ProductPageProps> = ({
   addToCart,
 }) => {
   return (
-    <div className="">
+    <div className="max-w-7xl mx-auto">
       {productDetails?.map?.((product) => (
-        <div
-          key={product.id}
-          className="md:flex md:mt-[7rem] flex-wrap justify-around gap-2 max-w-[1100px] mx-auto"
-        >
+        <div key={product.id} className="md:flex md:mt-[7rem] flex-wrap justify-around gap-2">
           <ProductThumbnail {...product} />
           <div className="p-5 max-w-[500px]">
             <ProductDescription {...product} />
