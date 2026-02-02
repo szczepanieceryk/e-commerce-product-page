@@ -5,11 +5,12 @@ import cartIcon from '../assets/images/icon-cart.svg';
 import userAvatar from '../assets/images/image-avatar.png';
 
 interface NavigationProps {
+  cartItemQunatity: number;
   isCartOpen: boolean;
   setIsCartOpen: (v: boolean) => void;
 }
 
-const Navigation: React.FC<NavigationProps> = ({ isCartOpen, setIsCartOpen }) => {
+const Navigation: React.FC<NavigationProps> = ({ isCartOpen, cartItemQunatity, setIsCartOpen }) => {
   return (
     <nav>
       <div className="max-w-7xl mx-auto p-5 md:p-[2rem] shadow-sm">
@@ -48,12 +49,20 @@ const Navigation: React.FC<NavigationProps> = ({ isCartOpen, setIsCartOpen }) =>
             </div>
           </div>
           <div>
-            <img
-              src={cartIcon}
-              alt=""
-              className="inline mr-4 cursor-pointer"
-              onClick={() => setIsCartOpen(!isCartOpen)}
-            />
+            <div className="inline relative">
+              {cartItemQunatity > 0 && (
+                <span className="absolute -top-3 right-3 py-[2px] px-[5px] text-[8px] text-white bg-orange-500 rounded-md">
+                  {cartItemQunatity}
+                </span>
+              )}
+              <img
+                src={cartIcon}
+                alt=""
+                className="inline mr-4 cursor-pointer"
+                onClick={() => setIsCartOpen(!isCartOpen)}
+              />
+            </div>
+
             <img
               src={userAvatar}
               alt=""

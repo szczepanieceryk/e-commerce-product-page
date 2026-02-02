@@ -23,7 +23,11 @@ const App = () => {
   return (
     <>
       <header>
-        <Navigation isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
+        <Navigation
+          isCartOpen={isCartOpen}
+          cartItemQunatity={itemQuantity}
+          setIsCartOpen={setIsCartOpen}
+        />
       </header>
       <main className="relative">
         <Cart
