@@ -43,7 +43,7 @@ const CartComponent: React.FC<CartProps> = ({
       role="dialog"
       aria-modal="true"
       aria-label="Shopping cart"
-      className="p-5 mx-auto absolute lg:right-[5rem] top-4 z-50 w-[95%] md:max-w-[400px] rounded-md shadow-xl bg-white"
+      className="p-5 mx-auto absolute inset-x-0 top-2 lg:right-[5rem] lg:-top-[7rem] lg:inset-auto z-50 w-[95%] md:max-w-[400px] rounded-md shadow-xl bg-white"
     >
       <span className="block my-4 font-semibold">Cart</span>
       <hr />
