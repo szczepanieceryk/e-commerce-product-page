@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../assets/images/logo.svg';
 import cartIcon from '../assets/images/icon-cart.svg';
 import userAvatar from '../assets/images/image-avatar.png';
 import Desktopnavigation from '../components/DesktopNavigation';
+import hamburgerIcon from '../assets/images/icon-menu.svg';
+import MobileNavigation from '../components/MobileNavigation';
 
 interface NavigationProps {
   cartItemQunatity: number;
@@ -11,11 +13,19 @@ interface NavigationProps {
 }
 
 const Navigation: React.FC<NavigationProps> = ({ isCartOpen, cartItemQunatity, setIsCartOpen }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
   return (
     <nav>
       <div className="max-w-7xl mx-auto p-5 md:p-[2rem] shadow-sm">
         <div className="flex flex-wrap justify-between items-center align-items-cnter">
           <div>
+            <img
+              src={hamburgerIcon}
+              alt=""
+              className="mr-4 md:hidden inline cursor-pointe"
+              onClick={() => setIsMenuOpen(true)}
+            />
             <img src={logo} alt="" className="inline h-auto w-[120px] cursor-pointer md:mr-4" />
             <Desktopnavigation />
           </div>
@@ -41,6 +51,7 @@ const Navigation: React.FC<NavigationProps> = ({ isCartOpen, cartItemQunatity, s
             />
           </div>
         </div>
+        <MobileNavigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       </div>
     </nav>
   );
