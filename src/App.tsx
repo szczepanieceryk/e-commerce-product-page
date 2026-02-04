@@ -47,6 +47,15 @@ const App = () => {
           addToCart={addToCart}
         />
       </main>
+      <footer className="my-[2rem] md:mt-[5rem] mx-auto max-w-md text-xs text-center">
+        <div className="text-[#3e52a3]">
+          Challenge by{' '}
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">
+            Frontend Mentor
+          </a>
+          . Coded by <a href="https://github.com/szczepanieceryk">Eryk Szczepaniec</a>.
+        </div>
+      </footer>
     </>
   );
 };
